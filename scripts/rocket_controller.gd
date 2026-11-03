@@ -140,6 +140,7 @@ func launch_rocket() -> void:
 		if part is RigidBody3D:
 			part.collision_layer = 1  # restore to default layer
 			part.collision_mask = 1   # restore to default mask
+			part.gravity_scale = 3  # ADJUST
 			part.set_deferred("freeze", false)
 			part.set_deferred("sleeping", false)
 	

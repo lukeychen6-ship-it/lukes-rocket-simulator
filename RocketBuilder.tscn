@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://i5bjcpghqa7k" path="res://canvas_layer.tscn" id="12_7fi8l"]
 [ext_resource type="PackedScene" uid="uid://4mrhkafb7k4u" path="res://save_load_manager.tscn" id="13_ieqm0"]
 [ext_resource type="Script" uid="uid://nnj37my633xg" path="res://scripts/ideas_menu.gd" id="13_u3jwb"]
+[ext_resource type="Script" uid="uid://ba0rp0w3gd3c8" path="res://scripts/tutorial.gd" id="14_6e441"]
 [ext_resource type="PackedScene" uid="uid://5y7g3puybvw0" path="res://inspiration_menu.tscn" id="14_dqr54"]
 [ext_resource type="Script" uid="uid://dwxmbxmjla53j" path="res://scripts/sound_manager.gd" id="14_escfo"]
 [ext_resource type="Script" uid="uid://c0f42ivkjbwgn" path="res://scripts/max_altitude_label.gd" id="15_6e441"]
@@ -25,7 +26,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s7gv"]
 size = Vector3(10000, 1, 10000)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6e441"]
+albedo_color = Color(0.18431373, 0.38431373, 0.101960786, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_l6gie"]
+material = SubResource("StandardMaterial3D_6e441")
 size = Vector2(10000, 10000)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3624"]
@@ -74,31 +79,16 @@ mesh = SubResource("PlaneMesh_l6gie")
 transform = Transform3D(-1, -8.742278e-08, 0, -3.821371e-15, 4.371139e-08, 1, -8.742278e-08, 1, -4.371139e-08, 0, 16, 0)
 shadow_enabled = true
 
-[node name="BottomMenuText" type="BoxContainer" parent="." unique_id=1884986113]
-anchors_preset = -1
-anchor_top = 0.762
-anchor_right = 1.0
-anchor_bottom = 0.919
-offset_top = 0.22399902
-offset_right = 2.0
-offset_bottom = -0.08001709
-alignment = 1
-
-[node name="Label" type="Label" parent="BottomMenuText" unique_id=1248496312]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-text = "Items:"
-
 [node name="BottomMenu" type="BoxContainer" parent="." unique_id=2041891968]
 anchors_preset = -1
 anchor_left = 0.087000005
 anchor_top = 0.89800006
 anchor_right = 0.92200005
-anchor_bottom = 0.94600004
+anchor_bottom = 0.99700004
 offset_left = -0.22400665
 offset_top = -11.904053
 offset_right = -3.144043
-offset_bottom = 32.992004
+offset_bottom = -0.056030273
 alignment = 1
 
 [node name="RestartButton" type="Button" parent="BottomMenu" unique_id=1310033302]
@@ -136,6 +126,11 @@ script = ExtResource("10_n2dkm")
 layout_mode = 2
 text = "Ideas"
 script = ExtResource("13_u3jwb")
+
+[node name="Tutorial" type="Button" parent="BottomMenu" unique_id=1804622380]
+layout_mode = 2
+text = "Tutorial"
+script = ExtResource("14_6e441")
 
 [node name="MaxAltitude" type="BoxContainer" parent="." unique_id=9958647]
 anchors_preset = -1

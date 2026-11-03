@@ -7,6 +7,7 @@ const MAX_SLOTS = 5
 var panel: PanelContainer
 var slot_buttons: Array[Button] = []
 var is_saving: bool = false  # true = save mode, false = load mode
+var title = Label.new()
 
 @onready var build_manager = get_tree().get_root().find_child("BuildManager", true, false)
 @onready var assembly_manager = get_tree().get_root().find_child("AssemblyManager", true, false)
@@ -21,8 +22,6 @@ func _ready() -> void:
 	
 	var vbox = VBoxContainer.new()
 	
-	var title = Label.new()
-	title.text = "Save / Load Rocket"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(title)
 	
@@ -63,6 +62,10 @@ func _input(event: InputEvent) -> void:
 
 func show_menu(saving: bool) -> void:
 	is_saving = saving
+	if is_saving:
+		title.text = "Save Rocket"
+	else:
+		title.text = "Load Rocket"
 	panel.visible = true
 	refresh_slots()
 
